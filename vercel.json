@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://price-compare-backend.onrender.com/api/$1"
+    },
+    {
+      "source": "/",
+      "destination": "/backend/src/main/resources/static/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/backend/src/main/resources/static/$1"
+    }
+  ]
+}

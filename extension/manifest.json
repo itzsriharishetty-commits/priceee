@@ -8,6 +8,7 @@
     "https://www.swiggy.com/*",
     "https://www.zomato.com/*",
     "https://www.zeptonow.com/*",
+    "https://price-compare-backend.onrender.com/*",
     "http://localhost:8080/*"
   ],
   "background": {

@@ -1,4 +1,7 @@
-const API_BASE = ''; // same-origin, since Spring Boot serves this file too
+// Use same-origin if hosted with backend (local or Render), or fallback to deployed backend if hosted on Vercel/CDN
+const API_BASE = window.location.origin.includes('onrender.com') || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? ''
+  : 'https://price-compare-backend.onrender.com';
 const POLL_INTERVAL_MS = 4000;
 
 const PLATFORM_COLORS = {

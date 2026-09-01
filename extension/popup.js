@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:8080';
+const BACKEND_URL = 'https://price-compare-backend.onrender.com';
 
 const statusEl = document.getElementById('status');
 const platformLabel = document.getElementById('platformLabel');
