@@ -1,0 +1,97 @@
+#pr-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2147483000;
+  background: #1C1F26;
+  color: #EDEDEF;
+  border: 1px solid #2A2E37;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: 600 13px -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#pr-toggle-btn.pr-on {
+  background: #8B2CF5;
+  border-color: #8B2CF5;
+  color: #fff;
+}
+
+body.pr-capture-active, body.pr-capture-active * {
+  cursor: crosshair !important;
+}
+
+.pr-hover-highlight {
+  outline: 2px solid #34D399 !important;
+  outline-offset: 2px !important;
+  background: rgba(52,211,153,0.08) !important;
+}
+
+#pr-capture-panel {
+  position: fixed;
+  z-index: 2147483001;
+  background: #1C1F26;
+  border: 1px solid #2A2E37;
+  border-radius: 12px;
+  padding: 14px;
+  width: 260px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  font: 13px -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #EDEDEF;
+}
+#pr-capture-panel label {
+  display: block;
+  font-size: 10.5px;
+  color: #8B909A;
+  margin: 8px 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+#pr-capture-panel input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #23262E;
+  border: 1px solid #2A2E37;
+  color: #EDEDEF;
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-size: 13px;
+  outline: none;
+}
+#pr-capture-panel .pr-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+#pr-capture-panel button {
+  flex: 1;
+  border-radius: 7px;
+  border: none;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+#pr-capture-panel .pr-send { background: #8B2CF5; color: #fff; }
+#pr-capture-panel .pr-cancel { background: #2A2E37; color: #EDEDEF; }
+
+#pr-toast {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 2147483002;
+  background: #1C1F26;
+  border: 1px solid #34D399;
+  color: #34D399;
+  padding: 9px 14px;
+  border-radius: 9px;
+  font: 600 12.5px -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+#pr-toast.pr-visible { opacity: 1; }

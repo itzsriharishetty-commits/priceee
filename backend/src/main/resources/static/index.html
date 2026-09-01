@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price Race — Swiggy · Zomato · Zepto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">₹</span>
+    <div>
+      <h1>Price Race</h1>
+      <p class="tagline">Same dish, three platforms, one winner.</p>
+    </div>
+  </div>
+
+  <div class="topbar-controls">
+    <input id="searchInput" type="text" placeholder="Filter by dish name…" autocomplete="off">
+    <span id="statusPill" class="status-pill status-unknown">checking backend…</span>
+    <button id="clearBtn" class="btn btn-ghost" title="Clear all captured prices">Clear all</button>
+  </div>
+</header>
+
+<main>
+  <section id="legend" class="legend">
+    <span class="legend-item"><i class="dot" style="background:#FC8019"></i>Swiggy</span>
+    <span class="legend-item"><i class="dot" style="background:#E23744"></i>Zomato</span>
+    <span class="legend-item"><i class="dot" style="background:#8B2CF5"></i>Zepto</span>
+    <span class="legend-item legend-count" id="entryCount">0 prices captured</span>
+  </section>
+
+  <section id="groupsContainer" class="groups-container">
+    <!-- comparison cards injected here -->
+  </section>
+
+  <section id="emptyState" class="empty-state" hidden>
+    <div class="empty-illustration">🎯</div>
+    <h2>No prices captured yet</h2>
+    <p>Open a menu on Swiggy, Zomato, or Zepto, switch on <strong>Capture mode</strong> in the
+       extension popup, and click a dish. Or add one manually below.</p>
+  </section>
+
+  <section class="manual-add">
+    <h3>Add a price manually</h3>
+    <form id="manualForm" class="manual-form">
+      <select id="manualPlatform" required>
+        <option value="SWIGGY">Swiggy</option>
+        <option value="ZOMATO">Zomato</option>
+        <option value="ZEPTO">Zepto</option>
+        <option value="OTHER">Other</option>
+      </select>
+      <input id="manualItemName" type="text" placeholder="Dish name (e.g. Chicken Biryani Full)" required>
+      <input id="manualPrice" type="number" step="0.01" min="0" placeholder="Price ₹" required>
+      <input id="manualDeliveryFee" type="number" step="0.01" min="0" placeholder="Delivery fee ₹ (optional)">
+      <input id="manualStoreName" type="text" placeholder="Restaurant / store (optional)">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>Runs entirely on <code>localhost</code>. Nothing here calls Swiggy/Zomato/Zepto servers directly —
+     every price came from a page you had open.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

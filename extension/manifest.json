@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Price Race — Swiggy/Zomato/Zepto Compare",
+  "version": "1.0.0",
+  "description": "Capture dish/item prices from the page you're already viewing on Swiggy, Zomato, or Zepto and compare them in one local dashboard.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://www.swiggy.com/*",
+    "https://www.zomato.com/*",
+    "https://www.zeptonow.com/*",
+    "http://localhost:8080/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Price Race"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.swiggy.com/*",
+        "https://www.zomato.com/*",
+        "https://www.zeptonow.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
