@@ -21,17 +21,25 @@ Three pieces:
 3. The backend also serves the **dashboard** (plain HTML/CSS/JS) at
    `http://localhost:8080` — a live "price race" view, refreshing every 4s.
 
-## 1. Run the backend
+## 1. Run or deploy the backend
 
-Requires Java 17+ and Maven.
+For local development, Java 17+ and Maven are required:
 
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-This starts the API + dashboard at **http://localhost:8080**. Leave it
-running while you shop.
+This starts the API + dashboard at **http://localhost:8080**.
+
+### Deploy to Render
+
+1. Create a new Render Web Service from this repository, or use the included `render.yaml` Blueprint.
+2. Render builds `backend/Dockerfile` and uses `/api/health` as the health check.
+3. Set `CORS_ALLOWED_ORIGINS` to the exact origins that need API access, separated by commas. Keep `http://localhost:8080` for local dashboard access, and add the deployed dashboard or extension origin when needed.
+4. Copy the service URL, update `BACKEND_URL` in `extension/background.js`, then reload the unpacked extension in Chrome.
+
+The backend listens on Render's injected `PORT` automatically. The dashboard is served from the same Render URL as the API.
 
 (No Maven installed? Run `mvn -v` to check. If missing, install via your
 OS package manager, e.g. `sdk install maven` or `brew install maven`.)

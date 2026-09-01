@@ -1,4 +1,5 @@
-const BACKEND_URL = 'http://localhost:8080';
+// Set this to your deployed Render URL before loading the extension.
+const BACKEND_URL = 'https://YOUR-RENDER-SERVICE.onrender.com';
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === 'INGEST') {
